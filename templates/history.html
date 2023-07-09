@@ -1,0 +1,22 @@
+{% extends "table.html" %}
+
+{% block heading %}
+    History
+{% endblock %}
+{% block thead %}
+    <th>Symbol</th>
+    <th>Shares</th>
+    <th>Prices</th>
+    <th>Transacted</th>
+{% endblock %}
+
+{% block tbody %}
+{% for transaction in transactions %}
+    <tr>
+        <td>{{transaction["symbol"].upper()}}</td>
+        <td>{{transaction["number"]}}</td>
+        <td>{{transaction["price"] | usd}}</td>
+        <td>{{transaction["time"]}}</td>
+    </tr>
+{% endfor%}   
+{% endblock %}
